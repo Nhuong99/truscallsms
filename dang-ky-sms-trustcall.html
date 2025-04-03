@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Đăng ký gói Trust Call Premium</title>
+  <style>
+    #popup {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 20px;
+      border: 2px solid #007bff;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      max-width: 300px;
+      text-align: center;
+    }
+
+    #popup h3 {
+      margin-top: 0;
+    }
+
+    #popup button {
+      margin-top: 15px;
+      padding: 8px 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#" onclick="handleSMSClick()">📩 Đăng ký gói Trust Call Premium Tháng</a>
+
+  <div id="popup">
+    <h3>Hướng dẫn soạn tin nhắn</h3>
+    <p>Soạn tin: <strong>DK T1</strong><br>
+       Gửi đến: <strong>1515</strong></p>
+    <button onclick="closePopup()">Đóng</button>
+  </div>
+
+  <script>
+    function isMobileDevice() {
+      return /Android|iPhone|iPad|iPod|Windows Phone/i.test(navigator.userAgent);
+    }
+
+    function handleSMSClick() {
+      if (isMobileDevice()) {
+        const smsLink = "sms:1515?body=DK%20T1";
+        window.location.href = smsLink;
+      } else {
+        document.getElementById("popup").style.display = "block";
+      }
+    }
+
+    function closePopup() {
+      document.getElementById("popup").style.display = "none";
+    }
+  </script>
+
+</body>
+</html>
